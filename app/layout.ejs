@@ -1,61 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%- title %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/style/all.css">
+    <link rel="stylesheet" href="dist/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/style/all.css" />
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- FIXME: border-lg-end 突然沒用??? -->
+    <!-- FIXME: 漢堡選單下拉後版面調整 -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-dark pt-0 pb-0">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <h1 class="navbar-brand flex-grow-1 border-lg-end border-dark mb-0 pt-lg-5 pb-lg-5 pt-3 pb-3">
+          <a class="d-block" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="189.374" height="40.001" viewBox="0 0 189.374 40.001">
+              <g id="logo" transform="translate(0 0)">
+                <g id="img" transform="translate(0 0)">
+                  <path id="Path_7" data-name="Path 7" d="M30,64.508,41.421,40.988,47.87,53.349,62.7,31.507l15.532,33Z" transform="translate(-30 -24.507)" />
+                  <rect id="Rectangle_18" data-name="Rectangle 18" width="10" height="10" fill="#e6553b" />
+                </g>
+                <path
+                  id="Path_3"
+                  data-name="Path 3"
+                  d="M.615,3.906l3.864-40H18.047l3.8,40H14.274l-.568-6.455H8.888l-.5,6.455ZM9.456-8.935h3.636l-1.75-20.341h-.364ZM24.3,3.906v-40H36.57a6.771,6.771,0,0,1,4.636,1.4,7.009,7.009,0,0,1,2.1,3.909,28.644,28.644,0,0,1,.534,5.9,13.617,13.617,0,0,1-.83,5.227,4.794,4.794,0,0,1-3.125,2.7,3.584,3.584,0,0,1,2.648,1.875A8.459,8.459,0,0,1,43.3-11.23V3.906H35.411V-11.753q0-1.75-.716-2.17a4.759,4.759,0,0,0-2.307-.42V3.906Zm8.136-25.182h1.932q1.659,0,1.659-3.614a8.188,8.188,0,0,0-.364-3.068,1.381,1.381,0,0,0-1.364-.727H32.433ZM49.911,3.906V-28.412h-4.75v-7.682h17.5v7.682h-4.75V3.906Zm25.886,0v-40h8.227l3.682,19.159V-36.094h7.727v40H87.615l-4-20v20Zm23.182,0v-40h16v7.8h-7.955v6.364h7.545v7.7h-7.545V3.906Zm22,0V-28.412h-4.75v-7.682h17.5v7.682h-4.75V3.906Z"
+                  transform="translate(55.645 36.094)"
+                />
+              </g>
+            </svg>
+          </a>
+        </h1>
+        <form action="post" class="d-flex align-items-center border-lg-end border-dark pt-lg-5 pb-lg-5 pe-lg-7 pt-3 pb-3 pe-4">
+          <input class="form-control collapse navbar-collapse border-0 bg-transparent pe-4" type="text" name="searchName" id="searchName" placeholder="搜尋作品名稱、藝術家名稱" />
+          <div href="#" id="btn-search">
+            <i class="fas fa-search fs-5"></i>
+          </div>
+        </form>
+        <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars fs-5"></i>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 align-items-center text-center">
+            <li class="nav-item pt-lg-5 pb-lg-5 pt-4 pb-4 ps-6 pe-6 border-lg-end border-dark w-100 w-lg-auto">
+              <a class="nav-link fw-bold fs-5" href="#">探索</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li class="nav-item pt-lg-5 pb-lg-5 pt-4 pb-4 ps-6 pe-6 border-lg-end border-dark">
+              <a class="nav-link fw-bold fs-5" href="#">市值</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+            <li class="nav-item pt-lg-5 pb-lg-5 pt-4 pb-4 ps-6 pe-6">
+              <a href="#">
+                <input class="btn btn-primary d-lg-none fs-5" type="submit" value="連結錢包" />
+                <i class="fas fa-wallet d-none d-lg-block fs-5"></i>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
 
     <%- contents %>
 
-    <footer class="footer">
-      footer
+    <footer class="footer bg-light pt-1 border-top border-dark border-1">
+      <div class="pt-4 pb-4 border-top border-dark border-4">
+        <p class="font-noto text-center">© ART NFT. All Rights Reserved</p>
+      </div>
     </footer>
 
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="dist/js/swiper-bundle.min.js"></script>
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
   </body>
-
 </html>
